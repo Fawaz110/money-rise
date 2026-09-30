@@ -1,0 +1,109 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.apexcharts-toolbar {
+  background: unset;
+}
+
+.apexcharts-menu-icon {
+  @apply text-gray-800 dark:text-text- duration-200;
+} 
+.apexcharts-menu.apexcharts-menu-open {
+  @apply bg-gray-50 dark:bg-bg-main;
+}
+.apexcharts-theme-light .apexcharts-menu-item {
+  @apply duration-200;
+  &:hover {
+    @apply text-green-base;
+  }
+}
+.apexcharts-menu-icon:hover {
+  color: #32c7a5 !important;
+}
+.apexcharts-measure-icon, .apexcharts-pan-icon, .apexcharts-reset-icon, .apexcharts-selection-icon, .apexcharts-toolbar-custom-icon, .apexcharts-zoom-icon, .apexcharts-zoomin-icon, .apexcharts-zoomout-icon {
+  @apply hidden;
+}
+
+body {
+  min-height: 100dvh;
+}
+
+app-root {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  min-height: 100dvh;
+
+  background:
+    radial-gradient(circle at 80% 15%,
+      rgba(43, 159, 130, 0.20),
+      transparent 28%),
+    radial-gradient(circle at 20% 85%,
+      rgba(39, 105, 91, 0.14),
+      transparent 32%),
+    #1e293b;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background:
+    radial-gradient(circle at 80% 15%,
+      rgba(50, 199, 165, 0.12),
+      transparent 28%),
+    radial-gradient(circle at 20% 85%,
+      rgba(39, 105, 91, 0.08),
+      transparent 32%),
+    #f8fafc;
+
+  color: #0f172a;
+}
+
+html.dark {
+  body {
+    background:
+      radial-gradient(circle at 80% 15%,
+        rgba(43, 159, 130, 0.20),
+        transparent 28%),
+      radial-gradient(circle at 20% 85%,
+        rgba(39, 105, 91, 0.14),
+        transparent 32%),
+      #1e293b;
+
+    color: #f8fafc;
+  }
+}
+
+.main-kpi {
+  background:
+    radial-gradient(circle at 80% 15%,
+      #32c7a5,
+      transparent 28%),
+    radial-gradient(circle at 20% 85%,
+      #32c7a5,
+      transparent 32%),
+    #58e1c1;
+}
+
+svg {
+  stroke-color: trasparent;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url('../public/fonts/Inter-Italic-VariableFont_opsz\,wght.ttf');
+}

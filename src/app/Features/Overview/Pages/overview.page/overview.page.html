@@ -1,0 +1,30 @@
+<section>
+    <div class="min-h-dvh">
+        <h1 class="text-title font-bold tracking-tight mb-lg">Overview</h1>
+        <div class="grid grid-cols-12 gap-lg">
+            <div class="col-span-12 md:col-span-9">
+                <div class="bg-bg-main p-lg rounded-2xl mb-lg">
+                    <h2 class="text-sub-title font-semibold tracking-tight mb-base">Income Vs. Expenses (Week, Month, 3
+                        Months)</h2>
+                    <div class=" -mx-5">
+                        <apx-chart [series]="chartOptions.series!" [chart]="chartOptions.chart!"
+                            [dataLabels]="chartOptions.dataLabels!" [stroke]="chartOptions.stroke!"
+                            [title]="chartOptions.title!" [xaxis]="chartOptions.xaxis!" [yaxis]="chartOptions.yaxis!"
+                            [tooltip]="chartOptions.tooltip!"></apx-chart>
+                    </div>
+                </div>
+                <div class="grid grid-cols-12 gap-5">
+                    <div class="col-span-12 sm:col-span-6 bg-bg-main p-lg rounded-2xl">
+                        <h2 class="text-sub-title font-semibold tracking-tight mb-base">Expenses</h2>
+                        <p>here would be a rounded speced donut chart</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-span-12 md:col-span-3 border border-transparent p-lg rounded-md">
+                <div class="">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
