@@ -1,0 +1,80 @@
+{
+    "global": {
+        "overview": "Overview",
+        "transactions": "Transactions",
+        "savings-circles": "Savings circles",
+        "budgets": "Budgets",
+        "debts": "Debts",
+        "notifications": "Notifications",
+        "settings": "Settings",
+        "logout": "Logout",
+        "minutes": "Minutes",
+        "back": "Back"
+    },
+    "overview": {
+        "income-vs-expenses": "Income Vs. Expenses",
+        "total-income": "Total income",
+        "total-expenses": "Total expenses",
+        "progress-of-richness": "Progress of richness"
+    },
+    "auth": {
+        "login-title": "Welcome back",
+        "login-subtitle": "Sign in to continue to your Moneyrise account",
+        "signup-title": "Create your account",
+        "signup-subtitle": "Get started with your Moneyrise journey",
+        "input": {
+            "fullName": {
+                "label": "Full name",
+                "placeholder": "Enter your full name"
+            },
+            "email": {
+                "label": "Email",
+                "placeholder": "you@example.com"
+            },
+            "phone": {
+                "label": "Phone number",
+                "placeholder": "Enter your phone number"
+            },
+            "password": {
+                "label": "Password",
+                "placeholder": "Enter your password",
+                "show": "Show password",
+                "hide": "Hide password"
+            }
+        },
+        "forgot-password": "Forgot password?",
+        "create-account": "Create account",
+        "dont-have-account-q": "Don't have an account?",
+        "already-have-account-q": "Already have an account?",
+        "login-now": "Login now",
+        "back-to-login": "Back to login",
+        "forgot-password-subtitle": "Enter the email address associated with your account and we'll send you a password reset link.",
+        "account-found": "Account found",
+        "account-found-subtitle": "We found an account associated with this email address.",
+        "reset-password-sent": "Reset password sent",
+        "reset-password-sent-subtitle": "check your email for a secure password reset link.",
+        "use-diffirent-email": "Use a different email",
+        "account-notfound": "Account not found",
+        "verify-your-email": "Verify your email",
+        "verify-your-email-subtitle": "Enter the 6-digit verification code we sent to your email",
+        "verification-code": "Verification code",
+        "code-expires": "Code expires after",
+        "verify-code": "Verify code",
+        "did-not-recieve-code-q": "Didn't receive the code?",
+        "resend-code": "Resend code"
+    },
+    "btn": {
+        "login": "Login",
+        "signup": "Sign up",
+        "logging-in": "Logging in...",
+        "signing-up": "Signing up...",
+        "continue": "Continue",
+        "checking-email": "Checking email..."
+    },
+    "error": {
+        "required": "This field is required",
+        "email": "Please enter a valid email address.",
+        "invalid-eg-phone":"Invalid egyptian phone",
+        "password-pattern": "Password must be at least (1 uppercase, 1 lowercase, 1 special character, 1 number)"
+    }
+}

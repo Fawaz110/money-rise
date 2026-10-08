@@ -11,26 +11,54 @@ body {
   padding: 0;
 }
 
+:root {
+    --color-bg-main: #f4f8f7;
+    --color-bg-card: rgba(255, 255, 255, 0.82);
+    --color-bg-input: rgba(255, 255, 255, 0.7);
+
+    --color-text: #17221f;
+    --color-text-secondary: #53635e;
+    --color-text-muted: #7a8984;
+
+    --color-border: rgba(23, 34, 31, 0.1);
+}
+
+.dark {
+    --color-bg-main: #111827;
+    --color-bg-card: rgba(17, 24, 39, 0.8);
+    --color-bg-input: rgba(255, 255, 255, 0.025);
+
+    --color-text: #f4f7f6;
+    --color-text-secondary: #aab7b3;
+    --color-text-muted: #687571;
+
+    --color-border: rgba(255, 255, 255, 0.1);
+}
+
 .apexcharts-toolbar {
   background: unset;
 }
 
-.apexcharts-menu-icon {
-  @apply text-gray-800 dark:text-text- duration-200;
+.apexcharts-menu-icon, 
+.apexcharts-reset-icon {
+  @apply text-gray-800 duration-200;
 } 
 .apexcharts-menu.apexcharts-menu-open {
   @apply bg-gray-50 dark:bg-bg-main;
 }
-.apexcharts-theme-light .apexcharts-menu-item {
-  @apply duration-200;
-  &:hover {
-    @apply text-green-base;
+.apexcharts-theme-light { 
+  .apexcharts-menu-item, .apexcharts-reset-icon {
+    @apply duration-200;
+    &:hover {
+      @apply text-green-base;
+    }
   }
 }
 .apexcharts-menu-icon:hover {
   color: #32c7a5 !important;
 }
-.apexcharts-measure-icon, .apexcharts-pan-icon, .apexcharts-reset-icon, .apexcharts-selection-icon, .apexcharts-toolbar-custom-icon, .apexcharts-zoom-icon, .apexcharts-zoomin-icon, .apexcharts-zoomout-icon {
+// .apexcharts-reset-icon
+.apexcharts-measure-icon, .apexcharts-pan-icon, .apexcharts-selection-icon, .apexcharts-toolbar-custom-icon, .apexcharts-zoom-icon, .apexcharts-zoomin-icon, .apexcharts-zoomout-icon {
   @apply hidden;
 }
 
@@ -46,16 +74,6 @@ app-root {
 
 body {
   min-height: 100dvh;
-
-  background:
-    radial-gradient(circle at 80% 15%,
-      rgba(43, 159, 130, 0.20),
-      transparent 28%),
-    radial-gradient(circle at 20% 85%,
-      rgba(39, 105, 91, 0.14),
-      transparent 32%),
-    #1e293b;
-
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -88,19 +106,21 @@ html.dark {
   }
 }
 
-.main-kpi {
-  background:
-    radial-gradient(circle at 80% 15%,
-      #32c7a5,
-      transparent 28%),
-    radial-gradient(circle at 20% 85%,
-      #32c7a5,
-      transparent 32%),
-    #58e1c1;
-}
+@layer components {
+  .form {
+    &-label {
+      @apply text-sm font-medium;
+    }
+    &-control {
+      @apply h-10 w-full rounded-md border border-border bg-bg-input px-3 pr-10 font-medium outline-none placeholder:text-text-muted transition-all duration-200 hover:border-green-base/40 focus:border-green-base focus:bg-white/60 focus:ring-2 focus:ring-green-base/15 dark:focus:bg-white/[0.04];
+    }
+  }
 
-svg {
-  stroke-color: trasparent;
+  .nav-link {
+    &-sm {
+      @apply cursor-pointer font-medium text-green-dark transition-colors hover:text-green-base dark:text-green-light;
+    }
+  }
 }
 
 @font-face {

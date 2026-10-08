@@ -1,8 +1,10 @@
-import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
-import $ from 'jquery'
+import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import $ from 'jquery';
+import { Avatar } from '../avatar/avatar';
 
 @Component({
-  imports: [],
+  imports: [RouterLink, Avatar],
   selector: 'app-navbar',
   styleUrl: './navbar.scss',
   templateUrl: './navbar.html',

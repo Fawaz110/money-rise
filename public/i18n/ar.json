@@ -1,0 +1,18 @@
+{
+    "global": {
+        "overview": "نظرة عامة",
+        "transactions": "التحويلات",
+        "savings-circles": "جمعيات الإدخار",
+        "budgets": "الميزانيات",
+        "debts": "الديون",
+        "notifications": "الإشعارات",
+        "settings": "الإعدادات",
+        "logout": "تسجيل الخروج"
+    },
+    "overview": {
+        "income-vs-expenses": "الدخل مقابل المصروفات",
+        "total-income": "إجمالي الدخل",
+        "total-expenses": "إجمالي المصروفات",
+        "progress-of-richness": "التقدم نحو الثراء"
+    }
+}

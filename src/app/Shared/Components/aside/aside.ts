@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
-  imports: [],
+  imports: [TranslatePipe],
   selector: 'app-aside',
   styleUrl: './aside.scss',
   templateUrl: './aside.html',

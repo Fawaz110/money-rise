@@ -1,30 +1,179 @@
 <section>
-    <div class="min-h-dvh">
-        <h1 class="text-title font-bold tracking-tight mb-lg">Overview</h1>
+    <div class="">
+        <h1 class="text-title font-bold tracking-tight mb-lg">{{"global.overview" | translate}}</h1>
         <div class="grid grid-cols-12 gap-lg">
-            <div class="col-span-12 md:col-span-9">
-                <div class="bg-bg-main p-lg rounded-2xl mb-lg">
-                    <h2 class="text-sub-title font-semibold tracking-tight mb-base">Income Vs. Expenses (Week, Month, 3
-                        Months)</h2>
-                    <div class=" -mx-5">
-                        <apx-chart [series]="chartOptions.series!" [chart]="chartOptions.chart!"
-                            [dataLabels]="chartOptions.dataLabels!" [stroke]="chartOptions.stroke!"
-                            [title]="chartOptions.title!" [xaxis]="chartOptions.xaxis!" [yaxis]="chartOptions.yaxis!"
-                            [tooltip]="chartOptions.tooltip!"></apx-chart>
+            <div class="col-span-12 md:col-span-8">
+                <div class="grid grid-cols-12 gap-lg mb-lg">
+                    <div
+                        class="col-span-12 md:col-span-4 ltr:bg-gradient-to-r rtl:bg-gradient-to-l from-green-dark to-green-base p-lg rounded-2xl">
+                        <div class="head">
+                            <div class="">
+                                <h2 class="text-text">{{"overview.progress-of-richness" | translate}}</h2>
+                                <p class="text-title font-semibold tracking-tight mb-base flex items-center gap-2 max-md:flex-wrap max-md:flex-col-reverse">
+                                    <span>Building assets</span>
+                                    <span class="ms-1 flex items-center justify-center relative z-0 min-w-2 size-2 bg-purple-base rounded-full after:absolute after:min-w-3 after:size-3 after:bg-purple-light after:rounded-full after:animate-ping"></span>
+                                </p>
+                            </div>
+                            <div class="w-full bg-green-dark rounded-full h-2 shadow-inner mb-sm">
+                                <div class="percent" style="width: 80%;">
+                                <div class="animate-progress bg-gradient-to-r from-green-500 to-teal-500 h-2 rounded-full"></div>
+                                </div>
+                            </div>
+                            <span class="text-sm line-clamp-1"><span class="text-lime">80%</span> towards your financial freedom</span>
+                        </div>
                     </div>
-                </div>
-                <div class="grid grid-cols-12 gap-5">
-                    <div class="col-span-12 sm:col-span-6 bg-bg-main p-lg rounded-2xl">
-                        <h2 class="text-sub-title font-semibold tracking-tight mb-base">Expenses</h2>
-                        <p>here would be a rounded speced donut chart</p>
+                <div class="col-span-12 md:col-span-4 bg-bg-main p-lg rounded-2xl">
+                        <div class="head flex justify-between">
+                            <div class="">
+                                <h2 class="text-text">Total income</h2>
+                                <p class="text-title font-semibold tracking-tight">{{1200 | currency: 'E£'}}</p>
+                            </div>
+                            <div
+                                class="min-w-14 size-14 bg-purple-base/20 text-purple-base rounded-full flex items-center justify-center">
+                                <svg fill="currentColor" width="30px" height="30px" viewBox="0 0 32 32"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g data-name="2. Coin" id="_2._Coin">
+                                        <path
+                                            d="M22,9h-.19A2.83,2.83,0,0,0,22,8V6a3,3,0,0,0-3-3H3A3,3,0,0,0,0,6V8a3,3,0,0,0,2.22,2.88A3,3,0,0,0,2,12v2a3,3,0,0,0,.22,1.12A3,3,0,0,0,0,18v2a3,3,0,0,0,2.22,2.88A3,3,0,0,0,2,24v2a3,3,0,0,0,3,3H22A10,10,0,0,0,22,9Zm-9.16,6H5a1,1,0,0,1-1-1V12a1,1,0,0,1,1-1H16A10,10,0,0,0,12.84,15ZM2,6A1,1,0,0,1,3,5H19a1,1,0,0,1,1,1V8a1,1,0,0,1-1,1H3A1,1,0,0,1,2,8ZM2,18a1,1,0,0,1,1-1h9.2a10.1,10.1,0,0,0,0,4H3a1,1,0,0,1-1-1Zm3,9a1,1,0,0,1-1-1V24a1,1,0,0,1,1-1h7.84A10,10,0,0,0,16,27Zm17,0a8,8,0,1,1,8-8A8,8,0,0,1,22,27Z" />
+                                        <path
+                                            d="M22,16h2a1,1,0,0,0,0-2H23a1,1,0,0,0-2,0v.18A3,3,0,0,0,22,20a1,1,0,0,1,0,2H20a1,1,0,0,0,0,2h1a1,1,0,0,0,2,0v-.18A3,3,0,0,0,22,18a1,1,0,0,1,0-2Z" />
+                                    </g>
+
+                                </svg>
+                            </div>
+                        </div>
+                        <div
+                            class="bottom text-base font-light -tracking-tight flex items-center justify-between flex-wrap gap-2">
+                            <p>This week income</p>
+                            <div class="text-red-500 flex items-center gap-1">
+                                <span>-12%</span>
+                                <svg width="20px" height="20px" viewBox="0 -2.5 20 20" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g id="Dribbble-Light-Preview" transform="translate(-220.000000, -6842.000000)"
+                                            fill="currentColor">
+                                            <g id="icons" transform="translate(56.000000, 160.000000)">
+                                                <path
+                                                    d="M175.865057,6687.28484 L181.192612,6692.66393 C181.50676,6692.97893 182.005408,6692.75593 182.005408,6692.31092 L182.005408,6689.99888 C182.005408,6689.44687 182.490094,6688.99987 183.040601,6688.99987 L183.021653,6688.99987 C183.573157,6688.99987 184,6689.44687 184,6689.99888 L184,6694.99897 C184,6696.10399 183.182217,6697 182.081203,6697 L177.094723,6697 C176.544216,6697 176.021633,6696.801 176.021633,6696.24899 L176.021633,6696.37399 C176.021633,6695.82198 176.544216,6694.99997 177.094723,6694.99997 L179.533112,6694.99997 C179.977906,6694.99997 180.200303,6694.46096 179.886154,6694.14595 L175.160967,6689.40787 C174.772021,6689.01787 174.140733,6689.01687 173.75079,6689.40787 L173.339904,6689.81988 C172.561016,6690.60089 171.29844,6690.60089 170.518554,6689.81988 L164.238582,6683.70578 C163.848639,6683.31577 164.054082,6682.68576 164.054082,6682.29576 L164.054082,6682.29376 C165.051378,6681.90275 165.258816,6681.90175 165.648758,6682.29276 L171.131891,6687.69785 C171.521834,6688.08885 172.198998,6688.08785 172.58894,6687.69685 L173.019772,6687.28684 C173.797663,6686.50383 175.085172,6686.50283 175.865057,6687.28484"
+                                                    id="arrow_right-[#298]">
+
+                                                </path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-span-12 md:col-span-4 bg-bg-main p-lg rounded-2xl">
+                        <div class="head flex justify-between">
+                            <div class="">
+                                <h2 class="text-text">{{"overview.total-expenses" | translate}}</h2>
+                                <p class="text-title font-semibold tracking-tight">{{1200 | currency: 'E£'}}</p>
+                            </div>
+                            <div
+                                class="min-w-14 size-14 bg-lime/20 text-lime rounded-full flex items-center justify-center">
+                                <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g>
+                                        <path
+                                            d="M9.5 13.7502C9.5 14.7202 10.25 15.5002 11.17 15.5002H13.05C13.85 15.5002 14.5 14.8202 14.5 13.9702C14.5 13.0602 14.1 12.7302 13.51 12.5202L10.5 11.4702C9.91 11.2602 9.51001 10.9402 9.51001 10.0202C9.51001 9.18023 10.16 8.49023 10.96 8.49023H12.84C13.76 8.49023 14.51 9.27023 14.51 10.2402"
+                                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M12 7.5V16.5" stroke="currentColor" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </g>
+                                    <path d="M22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M22 6V2H18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M17 7L22 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div
+                            class="bottom text-base font-light -tracking-tight flex items-center justify-between flex-wrap gap-2">
+                            <p>This week income</p>
+                            <div class="text-red-500 flex items-center gap-1">
+                                <span>-12%</span>
+                                <svg width="20px" height="20px" viewBox="0 -2.5 20 20" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g id="Dribbble-Light-Preview" transform="translate(-220.000000, -6842.000000)"
+                                            fill="currentColor">
+                                            <g id="icons" transform="translate(56.000000, 160.000000)">
+                                                <path
+                                                    d="M175.865057,6687.28484 L181.192612,6692.66393 C181.50676,6692.97893 182.005408,6692.75593 182.005408,6692.31092 L182.005408,6689.99888 C182.005408,6689.44687 182.490094,6688.99987 183.040601,6688.99987 L183.021653,6688.99987 C183.573157,6688.99987 184,6689.44687 184,6689.99888 L184,6694.99897 C184,6696.10399 183.182217,6697 182.081203,6697 L177.094723,6697 C176.544216,6697 176.021633,6696.801 176.021633,6696.24899 L176.021633,6696.37399 C176.021633,6695.82198 176.544216,6694.99997 177.094723,6694.99997 L179.533112,6694.99997 C179.977906,6694.99997 180.200303,6694.46096 179.886154,6694.14595 L175.160967,6689.40787 C174.772021,6689.01787 174.140733,6689.01687 173.75079,6689.40787 L173.339904,6689.81988 C172.561016,6690.60089 171.29844,6690.60089 170.518554,6689.81988 L164.238582,6683.70578 C163.848639,6683.31577 164.054082,6682.68576 164.054082,6682.29576 L164.054082,6682.29376 C165.051378,6681.90275 165.258816,6681.90175 165.648758,6682.29276 L171.131891,6687.69785 C171.521834,6688.08885 172.198998,6688.08785 172.58894,6687.69685 L173.019772,6687.28684 C173.797663,6686.50383 175.085172,6686.50283 175.865057,6687.28484"
+                                                    id="arrow_right-[#298]">
+
+                                                </path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-span-12 bg-bg-main p-lg rounded-2xl">
+                        <div class="heading flex items-center justify-between flex-wrap gap-2">
+                            <h2 class="text-sub-title font-semibold tracking-tight mb-base">
+                                {{"overview.income-vs-expenses"
+                                | translate}}</h2>
+                            <button
+                                class="border border-gray-800 py-sm px-base rounded-md flex items-center justify-center gap-2"><span>{{periodMessage()}}</span></button>
+
+                        </div>
+                        <div class="-mx-5">
+                            <apx-chart [series]="splineChart.series!" [chart]="splineChart.chart!"
+                                [dataLabels]="splineChart.dataLabels!" [stroke]="splineChart.stroke!"
+                                [title]="splineChart.title!" [xaxis]="splineChart.xaxis!" [yaxis]="splineChart.yaxis!"
+                                [tooltip]="splineChart.tooltip!"></apx-chart>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-span-12 md:col-span-3 border border-transparent p-lg rounded-md">
+            <div class="col-span-12 md:col-span-4 bg-bg-main p-lg rounded-2xl">
+                <h2 class="text-sub-title font-semibold tracking-tight mb-base">Expenses</h2>
                 <div class="">
-
+                    <apx-chart [series]="donutChart.series!" [chart]="donutChart.chart!" [labels]="donutChart.labels!"
+                        [colors]="donutChart.colors!" [plotOptions]="donutChart.plotOptions!"
+                        [stroke]="donutChart.stroke!" [legend]="donutChart.legend!"
+                        [title]="donutChart.title!"></apx-chart>
                 </div>
             </div>
         </div>
+        <!-- <div class="grid grid-cols-12 gap-lg">
+            <div class="col-span-12 md:col-span-9">
+                <div class="grid grid-cols-12 gap-lg">
+                    <div class="col-span-12 lg:col-span-8 bg-bg-main p-lg rounded-2xl">
+                        <div class="heading flex items-center justify-between flex-wrap gap-2">
+                            <h2 class="text-sub-title font-semibold tracking-tight mb-base">
+                                {{"overview.income-vs-expenses"
+                                | translate}}</h2>
+                            <button
+                                class="border border-gray-800 py-sm px-base rounded-md flex items-center justify-center gap-2"><span>{{periodMessage()}}</span></button>
+
+                        </div>
+                        <div class="-mx-5">
+                            <apx-chart [series]="splineChart.series!" [chart]="splineChart.chart!"
+                                [dataLabels]="splineChart.dataLabels!" [stroke]="splineChart.stroke!"
+                                [title]="splineChart.title!" [xaxis]="splineChart.xaxis!" [yaxis]="splineChart.yaxis!"
+                                [tooltip]="splineChart.tooltip!"></apx-chart>
+                        </div>
+                    </div>
+                    <div class="col-span-12 lg:col-span-4 bg-bg-main p-lg rounded-2xl">
+                        <h2 class="text-sub-title font-semibold tracking-tight mb-base">Expenses</h2>
+                        <div class="">
+                            <apx-chart [series]="donutChart.series!" [chart]="donutChart.chart!"
+                                [labels]="donutChart.labels!" [colors]="donutChart.colors!"
+                                [plotOptions]="donutChart.plotOptions!" [stroke]="donutChart.stroke!"
+                                [legend]="donutChart.legend!" [title]="donutChart.title!"></apx-chart>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
     </div>
 </section>

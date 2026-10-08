@@ -13,6 +13,6 @@ export class App {
 
   constructor() {
     this._TranslateService.addLangs(['ar', 'en']);
-    this._TranslateService.use("en")
-  }
+    this._TranslateService.use("ar")
+  } 
 }

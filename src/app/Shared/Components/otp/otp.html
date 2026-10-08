@@ -1,0 +1,68 @@
+<div class="">
+    <!-- Icon -->
+    <div class="mb-4 flex justify-center">
+        <div class="flex h-10 w-10 items-center justify-center rounded-full
+                 bg-green-base/10 text-green-base">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7"
+                stroke="currentColor" class="h-5 w-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3.75 3.75 0 1 1-7.5 0
+                 3.75 3.75 0 0 1 7.5 0ZM4.5 20.25a7.5 7.5 0 0 1 15 0" />
+            </svg>
+        </div>
+    </div>
+    <div class="mb-5 text-center">
+        <h1 class="text-lg font-semibold tracking-tight text-text">
+            {{"auth.verify-your-email" | translate}}
+        </h1>
+        <p class="mx-auto mt-1.5 max-w-[280px] text-xs leading-5
+                 text-text-secondary text-balance">
+            <span>{{"auth.verify-your-email-subtitle" | translate}}</span>
+            <span class="font-medium text-text block">
+                m********d&#x40;gmail.com
+            </span>
+        </p>
+    </div>
+    <div class="mb-4">
+        <label class="mb-2 block text-center text-xs font-medium
+                     text-text-secondary">
+            {{"auth.verification-code" | translate}}
+        </label>
+        <div class="flex justify-center  gap-2">
+            @for (digit of otp; track $index) {
+            <input #otpInp type="text" inputmode="numeric" maxlength="1"
+                [autocomplete]="$index === 0 ? 'one-time-code' : 'off'" [value]="otp[$index]"
+                (input)="onOtpInput($event, $index)" (keydown)="onOtpKeydown($event, $index)" aria-label="Digit 1"
+                class="h-11 w-10 rounded-md border border-border bg-bg-input text-center text-sm font-semibold text-text outline-none transition-all duration-200 hover:border-green-base/40 focus:border-green-base focus:ring-2 focus:ring-green-base/15 sm:h-12 sm:w-11" />
+            }
+        </div>
+    </div>
+    <div class="mb-4 text-center">
+        <p class="text-[10px] text-text-muted flex gap-1 justify-center">
+            {{"auth.code-expires" | translate}}<span class="font-semibold text-green-base">5 {{"global.minutes" |
+                translate}}</span>
+        </p>
+    </div>
+    <button type="button" [disabled]="otp.includes('')" (click)="submitCode()"
+        class="h-10 w-full rounded-md bg-green-base px-4 text-xs font-semibold text-slate-900 transition-all duration-200 hover:bg-green-light focus:outline-none focus:ring-2 focus:ring-green-base/30 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50">
+        {{"auth.verify-code" | translate}}
+    </button>
+    <div class="mt-4 text-center">
+        <span class="text-[10px] text-text-muted">
+            {{"auth.did-not-recieve-code-q" | translate}}
+        </span>
+        <button type="button" class="ml-1 text-[10px] font-medium text-green-base
+                 transition-colors hover:text-green-light">
+            {{"auth.resend-code" | translate}}
+        </button>
+    </div>
+    <div class="mt-4 text-center">
+        <button type="button"
+            class="inline-flex items-center gap-1 text-[10px] font-medium text-text-muted transition-colors hover:text-green-base">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"
+                stroke="currentColor" class="h-3.5 w-3.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg>
+            {{"global.back" | translate}}
+        </button>
+    </div>
+</div>

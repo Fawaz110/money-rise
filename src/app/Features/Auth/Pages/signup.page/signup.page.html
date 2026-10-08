@@ -1,1 +1,306 @@
-<p>signup.page works!</p>
+<section class="relative flex min-h-dvh items-center justify-center px-4 py-6">
+    <div
+        class="relative z-10 w-full max-w-sm rounded-xl border border-border bg-bg-card p-5 shadow-xl shadow-black/5 backdrop-blur-xl sm:p-6 dark:shadow-2xl dark:shadow-black/20"
+    >
+        <!-- Header -->
+        <header class="mb-5 flex flex-col items-center text-center">
+            <img
+                src="./logo/logo-lg.png"
+                alt="Moneyrise"
+                loading="lazy"
+                class="mb-2.5 w-28"
+            />
+
+            <h1 class="text-lg font-semibold tracking-tight text-text">
+                {{ 'auth.signup-title' | translate }}
+            </h1>
+
+            <p class="mt-1 text-xs leading-relaxed text-text-secondary">
+                {{ 'auth.signup-subtitle' | translate }}
+            </p>
+        </header>
+
+        <!-- Signup Form -->
+        <form
+            class="flex flex-col gap-5"
+            [formGroup]="_SignupForm"
+            (ngSubmit)="submitSignupForm()"
+        >
+            <!-- Full Name -->
+            <div class="flex flex-col gap-1.5">
+                <label for="name" class="form-label">
+                    {{ 'auth.input.fullName.label' | translate }}
+                </label>
+
+                <div class="relative">
+                    <input
+                        id="name"
+                        type="text"
+                        formControlName="fullName"
+                        autocomplete="name"
+                        [placeholder]="
+                            'auth.input.fullName.placeholder' | translate
+                        "
+                        class="form-control"
+                    />
+
+                    @if (
+                        _SignupForm.get('fullName')?.hasError('required') &&
+                        _SignupForm.get('fullName')?.touched
+                    ) {
+                        <span
+                            class="absolute top-full translate-y-1 text-xs text-red-500 ltr:right-0 rtl:left-0  "
+                        >
+                            {{ 'error.required' | translate }}
+                        </span>
+                    }
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="flex flex-col gap-1.5">
+                <label for="email" class="form-label">
+                    {{ 'auth.input.email.label' | translate }}
+                </label>
+
+                <div class="relative">
+                    <input
+                        id="email"
+                        type="email"
+                        formControlName="email"
+                        autocomplete="email"
+                        [placeholder]="
+                            'auth.input.email.placeholder' | translate
+                        "
+                        class="form-control"
+                    />
+
+                    @if (
+                        _SignupForm.get('email')?.hasError('required') &&
+                        _SignupForm.get('email')?.touched
+                    ) {
+                        <span
+                            class="absolute top-full translate-y-1 text-xs text-red-500 ltr:right-0 rtl:left-0  "
+                        >
+                            {{ 'error.required' | translate }}
+                        </span>
+                    }
+
+                    @if (
+                        _SignupForm.get('email')?.hasError('email') &&
+                        _SignupForm.get('email')?.touched
+                    ) {
+                        <span
+                            class="absolute top-full translate-y-1 text-xs text-red-500 ltr:right-0 rtl:left-0  "
+                        >
+                            {{ 'error.email' | translate }}
+                        </span>
+                    }
+                </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="flex flex-col gap-1.5">
+                <label for="phone" class="form-label">
+                    {{ 'auth.input.phone.label' | translate }}
+                </label>
+
+                <div class="relative">
+                    <input
+                        id="phone"
+                        type="tel"
+                        formControlName="phoneNumber"
+                        autocomplete="tel"
+                        [placeholder]="
+                            'auth.input.phone.placeholder' | translate
+                        "
+                        class="form-control"
+                    />
+
+                    @if (
+                        _SignupForm.get('phoneNumber')?.hasError('required') &&
+                        _SignupForm.get('phoneNumber')?.touched
+                    ) {
+                        <span
+                            class="absolute top-full translate-y-1 text-xs text-red-500 ltr:right-0 rtl:left-0  "
+                        >
+                            {{ 'error.required' | translate }}
+                        </span>
+                    }
+
+                    @if (
+                        _SignupForm.get('phoneNumber')?.hasError('pattern') &&
+                        _SignupForm.get('phoneNumber')?.touched
+                    ) {
+                        <span
+                            class="absolute top-full translate-y-1 text-xs text-red-500 ltr:right-0 rtl:left-0  "
+                        >
+                            {{ 'error.invalid-eg-phone' | translate }}
+                        </span>
+                    }
+                </div>
+            </div>
+
+            <!-- Password -->
+            <div class="flex flex-col gap-1.5">
+                <div class="flex items-center justify-between">
+                    <label for="password" class="form-label">
+                        {{ 'auth.input.password.label' | translate }}
+                    </label>
+                </div>
+
+                <div class="relative">
+                    <input
+                        id="password"
+                        formControlName="password"
+                        [type]="
+                            showPassword() ? 'text' : 'password'
+                        "
+                        autocomplete="new-password"
+                        placeholder="••••••••"
+                        class="form-control"
+                    />
+
+                    <!-- Password Visibility Button -->
+                    <button
+                        type="button"
+                        (click)="togglePassword()"
+                        [attr.aria-label]="
+                            showPassword()
+                                ? ('auth.input.password.hide' | translate)
+                                : ('auth.input.password.show' | translate)
+                        "
+                        [attr.aria-pressed]="showPassword()"
+                        class="absolute right-2.5 top-1/2 -translate-y-1/2 rounded p-1 text-text-muted transition-colors hover:text-text focus:text-green-base focus:outline-none"
+                    >
+                        @if (showPassword()) {
+                            <!-- Eye Off -->
+                            <svg
+                                class="h-4 w-4"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                aria-hidden="true"
+                            >
+                                <path d="M3 3l18 18" />
+                                <path
+                                    d="M10.6 10.6a2 2 0 0 0 2.8 2.8"
+                                />
+                                <path
+                                    d="M9.9 4.2A10.8 10.8 0 0 1 12 4c5 0 8.7 3.2 10 8a10.9 10.9 0 0 1-4 5.4"
+                                />
+                                <path
+                                    d="M6.6 6.6C4.8 7.8 3.6 9.6 2 12c1.3 4.8 5 8 10 8 1.2 0 2.3-.2 3.3-.6"
+                                />
+                            </svg>
+                        } @else {
+                            <!-- Eye -->
+                            <svg
+                                class="h-4 w-4"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"
+                                />
+                                <circle
+                                    cx="12"
+                                    cy="12"
+                                    r="3"
+                                />
+                            </svg>
+                        }
+                    </button>
+
+                    <!-- Required Error -->
+                    @if (
+                        _SignupForm.get('password')?.hasError('required') &&
+                        _SignupForm.get('password')?.touched
+                    ) {
+                        <span
+                            class="absolute top-full translate-y-1 text-xs text-red-500 ltr:right-0 rtl:left-0  "
+                        >
+                            {{ 'error.required' | translate }}
+                        </span>
+                    }
+
+                    <!-- Pattern Error -->
+                    @if (
+                        _SignupForm.get('password')?.hasError('pattern') &&
+                        _SignupForm.get('password')?.touched
+                    ) {
+                        <span
+                            class="absolute top-full translate-y-1 text-xs text-red-500 ltr:right-0 rtl:left-0  "
+                        >
+                            {{ 'error.password-pattern' | translate }}
+                        </span>
+                    }
+                </div>
+            </div>
+
+            <!-- Submit -->
+            <button
+                type="submit"
+                [disabled]="_SignupForm.invalid || isLoading()"
+                class="mt-10 flex h-10 w-full items-center justify-center gap-2 rounded-md bg-green-base px-4 text-xs font-semibold text-dark shadow-lg shadow-green-base/10 transition-all duration-200 hover:bg-green-light hover:shadow-green-base/20 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-green-base/40 focus:ring-offset-2 focus:ring-offset-bg-main disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-green-base disabled:hover:shadow-none disabled:active:scale-100"
+            >
+                @if (isLoading()) {
+                    <!-- Loading Spinner -->
+                    <svg
+                        class="h-4 w-4 animate-spin"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        aria-hidden="true"
+                    >
+                        <circle
+                            class="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="9"
+                            stroke="currentColor"
+                            stroke-width="3"
+                        />
+
+                        <path
+                            class="opacity-90"
+                            fill="currentColor"
+                            d="M21 12a9 9 0 0 1-9 9v-3a6 6 0 0 0 6-6h3Z"
+                        />
+                    </svg>
+
+                    <span>
+                        {{ 'btn.signing-up' | translate }}
+                    </span>
+                } @else {
+                    <span>
+                        {{ 'btn.signup' | translate }}
+                    </span>
+                }
+            </button>
+        </form>
+
+        <!-- Login Link -->
+        <p
+            class="mt-5 flex justify-center gap-1 text-center text-[11px] text-text-secondary"
+        >
+            <span>
+                {{ 'auth.already-have-account-q' | translate }}
+            </span>
+
+            <a
+                routerLink="/auth/login"
+                class="nav-link-sm"
+            >
+                {{ 'auth.login-now' | translate }}
+            </a>
+        </p>
+    </div>
+</section>
