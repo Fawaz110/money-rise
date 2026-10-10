@@ -1,6 +1,7 @@
-import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, inject, ViewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import $ from 'jquery';
+import { AuthService } from '../../../Features/Auth/Services/auth.service';
 import { Avatar } from '../avatar/avatar';
 
 @Component({
@@ -10,10 +11,11 @@ import { Avatar } from '../avatar/avatar';
   templateUrl: './navbar.html',
 })
 export class Navbar implements AfterViewInit {
-  @ViewChild('userMenu') userMenuElement!: ElementRef
+  @ViewChild('userMenu') userMenuElement!: ElementRef;
+  _AuthService = inject(AuthService);  
 
   ngAfterViewInit(): void {
-
+  
   }
 
   // toggleUserMenu() {

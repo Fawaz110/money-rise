@@ -25,7 +25,7 @@ export class SignupPage implements OnInit {
       fullName: ['', [Validators.required, Validators.minLength(3), Validators.max(50), Validators.pattern(/^[A-Za-z\u0600-\u06FF]+(?: [A-Za-z\u0600-\u06FF]+)*$/)]],
       email: ['', [Validators.required, Validators.email]],
       phoneNumber: ['', [Validators.required, Validators.pattern(/^(\+2)?01[0125][0-9]{8}$/)]],
-      password: ['', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/)]]
+      password: ['', [Validators.required, Validators.pattern(/^(?=.*[a-z A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{6,20}$/)]]
     })
   }
 

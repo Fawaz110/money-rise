@@ -7,7 +7,7 @@
             <div class="actions">
                 <div class="flex items-center gap-1">
                      <div class="cursor-pointer" routerLink="/auth/login">
-                         <app-avatar [name]="'Mustafa Mohamed'" [border]="true"></app-avatar>
+                         <app-avatar [name]="_AuthService.userPayload.value?.name!" [border]="true"></app-avatar>
                      </div>
                 </div>
             </div>
