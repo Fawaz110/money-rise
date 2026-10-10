@@ -15,6 +15,7 @@ export interface UserSummary {
     name: string,
     email: string,
     username: string,
+    profile?: string
 }
 
 export interface UserToken extends UserSummary {

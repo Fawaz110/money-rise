@@ -1,7 +1,13 @@
 <div class="uppercase relative flex items-center justify-center
                overflow-hidden rounded-full
-               bg-green-base/10 text-sm font-semibold text-green-base" [ngClass]="getAvatarSize() + ' ' + getAvatarBorder() ">
+               bg-green-base/10 text-sm font-semibold text-green-base cursor-pointer"
+    [ngClass]="getAvatarSize() + ' ' + getAvatarBorder() " [title]="name">
+    @if (profile == undefined) {
     <span>{{getAvatarLetters()}}</span>
+    }
+    @else {
+    <img class="w-full object-cover aspect-square" [src]="profile" [alt]="name + ' profile'">
+    }
     @if (dot) {
     <span class="absolute bottom-0.5 right-0.5 h-3 w-3 rounded-full
                      border-2 border-bg-card bg-green-base"></span>

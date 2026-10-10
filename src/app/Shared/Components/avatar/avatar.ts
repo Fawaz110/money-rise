@@ -12,6 +12,7 @@ export class Avatar {
   @Input() size: 'sm' | 'md' | 'lg' = 'sm'
   @Input() border: boolean = false;
   @Input() dot: boolean = false;
+  @Input() profile?: string
   
   getAvatarLetters = (): string => this.name.split(" ")[0][0] + this.name.split(" ")[this.name.split(" ").length - 1][0]
   
