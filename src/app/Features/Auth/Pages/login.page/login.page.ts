@@ -2,12 +2,12 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
-import { AuthService } from '../../Services/auth.service';
-import { catchError, exhaustMap, finalize, of, Subject } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
 import { CookieService } from 'ngx-cookie-service';
+import { catchError, exhaustMap, finalize, of, Subject } from 'rxjs';
 import { environment } from '../../../../../environments/environment.development';
 import AuthInterfaces from '../../Interfaces/auth.interface.export';
+import { AuthService } from '../../Services/auth.service';
 
 @Component({
   imports: [
