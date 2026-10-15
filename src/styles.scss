@@ -116,6 +116,12 @@ html.dark {
     }
   }
 
+  .btn {
+    &-primary {
+      
+    }
+  }
+
   .nav-link {
     &-sm {
       @apply cursor-pointer font-medium text-green-dark transition-colors hover:text-green-base dark:text-green-light;

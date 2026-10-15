@@ -10,7 +10,7 @@
       @if (accountFound() === true) {
       @if (otpSent()) {
       <div #otpForm class="inner duration-200">
-        <app-otp></app-otp>
+        <app-otp [id]="account.value?.id!"></app-otp>
       </div>
       }
       @else {

@@ -1,6 +1,9 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { Component, ElementRef, inject, Input, OnInit, QueryList, signal, ViewChildren } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslatePipe } from '@ngx-translate/core';
+import { AuthService } from '../../../Features/Auth/Services/auth.service';
+import { catchError, exhaustMap, finalize, of, Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   imports: [
@@ -13,15 +16,43 @@ import { TranslatePipe } from '@ngx-translate/core';
   templateUrl: './otp.html',
 })
 export class Otp implements OnInit {
+  _AuthService = inject(AuthService);
+  _Router = inject(Router)
+  _OTPClick$ = new Subject<void>();
   protected otp: string[] = ['', '', '', '', '', ''];
+  @Input() id!: string
   @ViewChildren('otpInp') private readonly otpInputs!: QueryList<ElementRef<HTMLInputElement>>
+  loading = signal(false);
+
   ngOnInit(): void {
-    
+
+  }
+
+  initializeOTPClickSubscription(): void {
+    this._OTPClick$.pipe(exhaustMap(() => {
+      this.loading.set(true);
+      const model = {
+        id: this.id,
+        code: this.otp.join('')
+      }
+      return this._AuthService.confirmCode(model).pipe(
+        catchError(error => {
+          console.error('login failed: ', error);
+          return of(null);
+        }),
+        finalize(() => this.loading.set(false)));
+    })).subscribe({
+      next: (response) => {
+        this._AuthService.otp.next(this.otp.join(''));
+        this._Router.navigate(['/reset-password']);
+      }
+    })
   }
 
   submitCode() {
-    console.log(this.otp.join(''));
-    
+    if (!this.otp.includes('')) {
+      console.log(this.otp.join(''));
+    }
   }
 
   protected onOtpInput(event: Event, index: number): void {
@@ -39,10 +70,7 @@ export class Otp implements OnInit {
     }
   }
 
-  protected onOtpKeydown(
-    event: KeyboardEvent,
-    index: number
-  ): void {
+  protected onOtpKeydown(event: KeyboardEvent, index: number): void {
     const input = event.target as HTMLInputElement;
 
     if (event.key === 'Backspace') {
@@ -92,7 +120,7 @@ export class Otp implements OnInit {
 
     const digits = pastedValue.replace(/\D/g, '').slice(0, this.otp.length);
 
-    if (!digits) 
+    if (!digits)
       return;
 
     // Fill OTP array
@@ -105,10 +133,11 @@ export class Otp implements OnInit {
 
     // Focus next empty input or last input
     const nextEmptyIndex = this.otp.findIndex(value => !value);
-    const focusIndex = nextEmptyIndex === -1? this.otp.length - 1 : nextEmptyIndex;
+    const focusIndex = nextEmptyIndex === -1 ? this.otp.length - 1 : nextEmptyIndex;
 
     this.focusInput(focusIndex);
   }
+
   private focusInput(index: number): void {
     setTimeout(() => {
       this.otpInputs
@@ -116,5 +145,6 @@ export class Otp implements OnInit {
         ?.nativeElement.focus();
     });
   }
+
   protected getOtp = (): string => this.otp.join('');
 }

@@ -40,6 +40,14 @@
                 "placeholder": "Enter your password",
                 "show": "Show password",
                 "hide": "Hide password"
+            },
+            "new-password": {
+                "label": "New password",
+                "placeholder": "Enter your new password"
+            },
+            "confirm-password": {
+                "label": "Confirm password",
+                "placeholder": "Re enter your new password"
             }
         },
         "forgot-password": "Forgot password?",
@@ -61,7 +69,14 @@
         "code-expires": "Code expires after",
         "verify-code": "Verify code",
         "did-not-recieve-code-q": "Didn't receive the code?",
-        "resend-code": "Resend code"
+        "resend-code": "Resend code",
+        "reset-your-password": "Reset your password",
+        "reset-your-password-subtitle": "Create a new password to secure your Moneyrise account.",
+        "password-requirements-msg": "Your password should contain:",
+        "at-least-6-characters": "At least 6 characters",
+        "1-uppercase-character": "One uppercase letter",
+        "1-number": "One number",
+        "1-special-character": "One special character"
     },
     "btn": {
         "login": "Login",
@@ -69,7 +84,11 @@
         "logging-in": "Logging in...",
         "signing-up": "Signing up...",
         "continue": "Continue",
-        "checking-email": "Checking email..."
+        "checking-email": "Checking email...",
+        "reset-password": "Reset password"
+    },
+    "links": {
+        "back-to-signin": "Back to sign in"
     },
     "error": {
         "required": "This field is required",

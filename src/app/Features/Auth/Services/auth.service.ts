@@ -11,6 +11,7 @@ export class AuthService {
     private _HttpClient = inject(HttpClient);
     userPayload: BehaviorSubject<AuthInterfaces.UserPayload | undefined> = new BehaviorSubject<AuthInterfaces.UserPayload | undefined>(undefined);
     userToken: BehaviorSubject<string | undefined> = new BehaviorSubject<string | undefined>(undefined);
+    otp: BehaviorSubject<string | undefined> = new BehaviorSubject<string | undefined>(undefined);
 
     login(data: AuthInterfaces.Login): Observable<AuthInterfaces.UserToken> {
         return this._HttpClient.post<AuthInterfaces.UserToken>(this.AuthBaseUrl + '/login', data);
